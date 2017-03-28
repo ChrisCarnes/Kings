@@ -1,0 +1,118 @@
+/*****************************************/
+/*                                       */
+/*  DESKTOP STYLES @ 1024px AND GREATER  */
+/*                                       */
+/*****************************************/
+
+
+@media only screen and (min-width: 960px) {
+
+/* SET GLOBAL VALUES */
+
+html, body {  }
+
+.menu, .section, .footer { width: 960px; }
+.masthead_wrapper, .masthead, .banner_wrapper, .banner { height: 608px; }
+.mobile_icon, .phone_icon { display: none; }
+.masthead_logo { top: 0px; }
+.menu_wrapper { top: 100px; }
+
+/* NEW MENU with DROPDOWNS */
+
+.mobile_icon, .m_expand { display: none; }
+
+.sitenav { display: block !important; }
+.sitelinks { 
+	display: block !important;
+	top: 29px;
+	top: 0px; 
+	left: auto;
+	right: 10px; 
+	width: 940px;
+	background-color: transparent;
+	border: 0px none transparent;
+	height: 59px;
+	}
+.sitelinks li { 
+	text-align: left;
+	display: inline-block;
+	padding: 18px 20px 0px 0px;
+	font-size: 22px;
+	line-height: 22px;
+	text-transform: uppercase;
+	border: none;
+	height: 41px;
+	background-color: transparent;
+	}
+.sitelinks li.killpad { padding-right: 0px; }
+.sitelinks .divider { display: inline; padding: 0px 10px 0px 5px; color: #FFF !important; }
+.sitelinks li:hover { background-color: transparent !important; }
+.sitelinks li:hover a,.sitelinks li:hover a, #page_services .menu_services, #page_specials .menu_specials, #page_giftcards .menu_giftcards, #page_faq .menu_faq, #page_about .menu_about, #page_contact .menu_contact { color: rgba(0,0,0,0.1); text-shadow: 0px 0px 0px rgba(0,0,0,0.0); background-color: transparent; }
+.sitelinks li.na, .sitelinks li .divider.na { color: rgba(255,255,255,0.2) !important; text-shadow: 0px 0px 0px rgba(0,0,0,0.0); }
+.sitelinks li.na:hover a { color: rgba(255,255,255,0.2) !important; cursor: auto; }
+
+/* SUBMENUS */
+
+.sitelinks li:hover .sitesublinks { 
+	display: block !important; 
+	position: absolute; 
+	margin: 19px 0px 0px -14px; 
+	padding: 0px;  
+	z-index: 9999;
+	}
+.sitelinks li:hover li { 
+	float: none;
+	display: block; 
+	text-align: left; 
+	padding: 10px 15px 13px 15px; 
+	height: auto;
+	width: 100%; 
+	white-space: nowrap;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	}
+.sitelinks li:hover li, .sitelinks li:hover li a {
+	font: normal normal 400 18px/24px "Roboto Slab", Arial, Helvetica, sans-serif;
+	color: #FFF !important;
+	text-transform: none;
+	width: 100% !important;
+	background-color: #fec02f;
+	}
+.sitelinks li:hover li a { background-color: transparent; }
+.sitesublinks li.first { border-top: 0px none transparent; !important; }
+.sitelinks li:hover li:hover { width: 100% !important; background-color: #8bc13f !important; }
+.sitelinks li:hover li.first:hover { border-top-color: #61872c; }
+
+.menu_right { float: right; }
+/*
+.quotebar_wrapper, .quotebar { width: 343px; }
+.quotebar_wrapper { margin-left: 127px; top: 201px; }
+*/
+.quotebar { margin-top: -407px; min-height: 407px !important; }
+
+/* CONTENT */
+
+.main, .sidebar {  }
+.main { width: 620px; }
+.sidebar {  }
+
+/* PIC FOR RECORD */
+
+.pic_box {
+	float: right;
+	margin-left: 20px;
+	}
+.pic { }
+.caption { }
+
+/* FOOTER */
+
+.content_wrapper { padding-bottom: 150px; } /* Padding matches footer height. This container JUST makes room for footer. */
+.footer_wrapper, .footer { height: 130px; }
+.footer_wrapper { margin-top: -130px; }
+
+}
+
+/* HIDE ON DESKTOPS @ 1024px - 1119px */
+
+/* @media only screen and (min-width: 960px) AND (max-width: 1119px) { .d_hide { display: none !important; visibility: hidden !important; } } IF LARGE */
+@media only screen and (min-width: 960px) { .d_hide { display: none !important; visibility: hidden !important; } }
