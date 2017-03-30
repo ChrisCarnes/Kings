@@ -44,9 +44,9 @@ img { max-width: 100%; }
 /* MASTHEAD */
 
 .masthead_wrapper, .masthead { height: 162px; overflow: visible; }
-.masthead_wrapper { background: transparent url("/css/images/__temp_background.jpg") no-repeat center center; background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; }
+.masthead_wrapper { background: transparent no-repeat center center; background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; }
 .masthead {  }
-.masthead_logo { position: absolute; top: 0px; left: 50%; margin-left: -77px; width: 154px; height: 194px; background: transparent url("/css/images/sprites.png") no-repeat -424px -60px; z-index: 9999; }
+.masthead_logo { position: absolute; top: 0px; left: 50%; margin-left: -77px; width: 154px; height: 194px; background: transparent url("/resources/images/sprites.png") no-repeat -424px -60px; z-index: 9999; }
 .masthead_logo h2 { display: none; }
 
 .menu_wrapper, .menu { height: 70px; }
@@ -67,7 +67,7 @@ img { max-width: 100%; }
 	cursor: pointer;
 	}
 .quote { display: none; }
-.quote_close, .quote_open { width: 30px; height: 30px; position: absolute; right: 10px; top: 33px; background: transparent url("/css/images/sprites.png") no-repeat 0px -60px; }
+.quote_close, .quote_open { width: 30px; height: 30px; position: absolute; right: 10px; top: 33px; background: transparent url("/resources/images/sprites.png") no-repeat 0px -60px; }
 .quote_close { background-position: -30px -60px; }
 .quote_intro {
 	font: normal normal 300 16px/24px Arial, Helvetica, sans-serif;
@@ -132,7 +132,7 @@ img { max-width: 100%; }
 	right: 5px; 
 	width: 80px; 
 	height: 60px; 
-	background: transparent url("/css/images/sprites.png") no-repeat 0px -120px; 
+	background: transparent url("/resources/images/sprites.png") no-repeat 0px -120px; 
 	cursor: pointer;
 	z-index: 9999;
 	}
@@ -172,7 +172,7 @@ img { max-width: 100%; }
 .sitelinks li:hover { background-color: #afbd21; background-color: #6b6b6b; }
 .sitelinks .menu_last { border-bottom: none; }
 
-.m_expand { position: absolute; top: 0px; right: 0px; cursor: pointer; width: 52px; height: 45px; background: transparent url("/css/images/sprites.png") no-repeat -5px -174px; }
+.m_expand { position: absolute; top: 0px; right: 0px; cursor: pointer; width: 52px; height: 45px; background: transparent url("/resources/images/sprites.png") no-repeat -5px -174px; }
 
 .services_subnav, .sitelinks .divider { display: none; }
 .sitesublinks {
@@ -215,7 +215,7 @@ img { max-width: 100%; }
 .sidebar {  }
 img { max-width: 100%; }
 
-.home_wrapper { background: #FFF url("/css/images/bkg_mobile.png") repeat-x left top; }
+.home_wrapper { background: #FFF url("/resources/images/bkg_mobile.png") repeat-x left top; }
 
 .record_title { font-size: 42px; line-height: 44px; color: #afbd21; margin-top: 0px; }
 .record_subtitle { font-size: 20px; line-height: 26px; color: ; margin: 6px 0px 0px 1px; }
@@ -366,7 +366,7 @@ img { max-width: 100%; }
 .credits { display: block; }
 
 .footer_logos { width: 142px; height: 24px; position: absolute; bottom: 20px; left: 50%; margin-left: -71px; }
-.footer_logo { height: 24px; background: transparent url("/css/images/sprites.png") no-repeat -184px -156px; float: left; }
+.footer_logo { height: 24px; background: transparent url("/resources/images/sprites.png") no-repeat -184px -156px; float: left; }
 	.beansprout { width: 67px; background-position: -0px -0px; } .beansprout:hover { background-position: -0px -25px; }
 	.coloredbean { width: 63px; background-position: -68px -0px; margin-left: 12px; } .coloredbean:hover { background-position: -68px -25px; }
 
