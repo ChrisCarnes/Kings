@@ -1,6 +1,6 @@
 <?php
 /**
- * Similar to include, but cooler.
+ * Similar to include, but much, much cooler.
  */
 function partial ($filename = "", $variables = array()) {
     $filename = preg_replace("/^\/+|\/+$/", "", $filename);
@@ -8,7 +8,7 @@ function partial ($filename = "", $variables = array()) {
         $filename .= ".php";
     }
     
-    $filepath = __DIR__ . "/_partials/$filename";
+    $filepath = __DIR__ . "/_includes/$filename";
 
     if (file_exists($filepath)) {
         ob_start();
@@ -17,13 +17,5 @@ function partial ($filename = "", $variables = array()) {
         }
         include $filepath;
         echo ob_get_clean();
-    }
-}
-
-function partial ($filename = "") {
-    $filepath = __DIR__ . "/_partials/$filename.php";
-
-    if (file_exists($filepath)) {
-        include "$filepath";
     }
 }

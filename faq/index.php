@@ -1,36 +1,18 @@
-<!doctype html>
-<html>
+<?php include "../functions.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
     <title>King's Green Cleaning | FAQ - Frequently Asked Questions</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="King's Green Cleaning" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="copyright" content="Copyright &copy; 2017 King's Green Cleaning. All rights reserved." />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon.ico">
     <link rel="canonical" href="http://kingsgreencleaning.com/faq/" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400,700">
-    <link rel="stylesheet" href="/resources/css/normalize.min.css">
-    <link rel="stylesheet" href="/resources/css/jquery.bxslider.css" />
-    <link rel="stylesheet" href="/resources/css/main_top.css" />
-    <link rel="stylesheet" href="/resources/css/main.css" />
-    <link rel="stylesheet" href="/resources/css/tablet.css" />
-    <link rel="stylesheet" href="/resources/css/desktop.css" />
-    <link rel="stylesheet" href="/resources/css/lightbox.css">
-    <link rel="stylesheet" href="/resources/css/main_bottom.css" />
+    <?php partial("meta", ["page" => "FAQ"]); ?>
+    <?php partial("head"); ?>
 
-    <!--<link rel="stylesheet" href="http://addtocalendar.com/atc/1.5/atc-style-blue.css">-->
-    <script src="/resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
 <body id="page_faq" class="">
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <?php partial("analytics"); ?>
+    <?php partial("browser-upgrade"); ?>
 
     <div class="main_wrapper">
         <main class="content_wrapper clearfix" itemprop="mainContentOfPage">
@@ -59,80 +41,7 @@
                 </li>
             </ul>
 
-            <div class="masthead_wrapper">
-                <header class="masthead" itemscope itemtype="http://schema.org/WPHeader">
-                    <a href="/">
-                        <div class="masthead_logo">
-                            <h2>
-                                King's Green Cleaning - Green Cleaning Cleaning Solutions for Your Home
-                            </h2>
-                        </div>
-                    </a>
-                    <div class="menu_wrapper">
-                        <div class="menu">
-                            <div class="mobile_icon mobile_menu_icon"></div>
-                            <a href="tel:4055496862">
-                                <div class="phone_icon"></div>
-                            </a>
-                            <nav class="sitenav">
-                                <ul class="sitelinks">
-                                    <li class="menu_home menu_first" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                        <a href="/" itemprop="url">
-                                            <span itemprop="name">
-                                                Home
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="menu_services services_menu_icon" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                        <a href="/services/" itemprop="url">
-                                            <span itemprop="name">
-                                                Services
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="menu_specials killpad" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                        <a href="/specials/" itemprop="url">
-                                            <span itemprop="name">
-                                                Specials
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <span class="menu_right">
-                                        <li class="menu_giftcards" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                            <a href="/giftcards/" itemprop="url">
-                                                <span itemprop="name">
-                                                    Gift Cards
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="menu_faq" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                            <a href="/faq/" itemprop="url">
-                                                <span itemprop="name">
-                                                    FAQ
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="menu_about" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                            <a href="/about/" itemprop="url">
-                                                <span itemprop="name">
-                                                    About
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="menu_contact menu_last killpad" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                            <a href="/contact/" itemprop="url">
-                                                <span itemprop="name">
-                                                    Contact
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </span>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </header>
-            </div>
+            <?php partial("header"); ?>
 
             <div class="section_wrapper home_wrapper">
                 <div class="section">
@@ -390,170 +299,7 @@
         </main>
     </div>
 
-    <div class="footer_wrapper clearfix">
-        <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-            <div class="footer_text">
-                <span itemscope itemtype="http://schema.org/Organization">
-                    <link itemprop="additionalType" href="http://www.productontology.org/id/Destination_marketing_organization" />
-                    <div class="company_name">
-                        <span itemprop="legalName" class="company">
-                            King's Green Cleaning
-                        </span>
-                        <span class="divider m_hide">
-                            |
-                        </span>
-                        <span itemprop="description" class="tagline">
-                            Green Cleaning Cleaning Solutions for Your Home
-                        </span>
-                    </div>
-                    <div class="address">
-                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                            <span itemprop="streetAddress">
-                                1802 N. Shartel
-                                <span class="m_hide">
-                                    ,
-                                </span>
-                            </span>
-                            <span class="city_state">
-                                <span itemprop="addressLocality">
-                                    Oklahoma City
-                                </span>
-                                ,
-                                <span itemprop="addressRegion">
-                                    OK
-                                </span>
-                                <span itemprop="postalCode">
-                                    73103
-                                </span>
-                            </span>
-                        </span>
-                        <span class="contact_numbers">
-                            <span class="divider m_hide">
-                                |
-                            </span>
-                            <span class="phone">
-                                <span itemprop="telephone">
-                                    <a href="tel:4055496862">(405) 549-6862</a>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                </span>
-            </div>
-            <div class="fineprint">
-                <span class="copyright">
-                    Copyright &copy;
-                    <span itemprop="copyrightYear">
-                        2017
-                    </span>
-                    <span itemprop="copyrightHolder">
-                        King's Green Cleaning
-                    </span>
-                    .
-                </span>
-                <span class="credits">
-                    &nbsp;
-                </span>
-            </div>
-            <div class="footer_logos">
-                &nbsp;
-            </div>
-        </footer>
-    </div>
+    <?php partial("footer"); ?>
 
-    <!--[if IE 8]><script src="/js/css3-mediaqueries.js"></script><![endif]-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/resources/js/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="/resources/js/plugins.js"></script>
-    <script src="/resources/js/main.js"></script>
-    <script src="/resources/js/lightbox.js"></script>
-    <script src="/resources/js/jquery.easing.1.3.js"></script>
-    <script src="/resources/js/jquery.bxslider.min.js"></script>
-    <script type="text/javascript">
-        lightbox.option({
-            'alwaysShowNavOnTouchDevices': true
-        });
-
-        function toggleSlides() {
-            $('.toggler').click(function(e) {
-                var id = $(this).attr('id');
-                var widgetId = id.substring(id.indexOf('-') + 1, id.length);
-                $('#' + widgetId).slideToggle();
-                $(this).toggleClass('sliderExpanded');
-                $('.closeSlider').click(function() {
-                    $(this).parent().hide('slow');
-                    var relatedToggler = 'toggler-' + $(this).parent().attr('id');
-                    $('#' + relatedToggler).removeClass('sliderExpanded');
-                });
-            });
-        };
-        $(function() {
-            toggleSlides();
-        });
-
-        $(document).ready(function() {
-            $('.bxslider').bxSlider({
-                mode: 'horizontal',
-                /* options horizontal, vertical, fade */
-                speed: 500,
-                /* default is 500 */
-                startSlide: 0,
-                /* default is 0 */
-                randomStart: false,
-                /* default is false */
-                easing: '',
-                /* default is NULL, options are linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(n,n,n,n)*/
-                captions: false,
-                /* default is false */
-                responsive: true,
-                /* default is true. disable if you need to use fixed-width sliders */
-                pager: false,
-                controls: false,
-                auto: true,
-                pause: 4000,
-                autoStart: true,
-                autoHover: true
-            });
-            $('#ad_slider').bxSlider({
-                mode: 'horizontal',
-                /* options horizontal, vertical, fade */
-                speed: 500,
-                /* default is 500 */
-                startSlide: 0,
-                /* default is 0 */
-                randomStart: true,
-                /* default is false */
-                easing: '',
-                /* default is NULL, options are linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(n,n,n,n)*/
-                captions: false,
-                /* default is false */
-                responsive: true,
-                /* default is true. disable if you need to use fixed-width sliders */
-                pager: false,
-                controls: false,
-                auto: true,
-                pause: 4000,
-                autoStart: true,
-                autoHover: true
-            });
-        });
-    </script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] = function() {
-                (b[l].q = b[l].q || []).push(arguments)
-            });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-FIXME', 'auto');
-        ga('send', 'pageview');
-    </script>
 </body>
 </html>
