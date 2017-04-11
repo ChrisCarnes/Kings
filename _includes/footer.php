@@ -1,4 +1,4 @@
-    <div class="footer_wrapper clearfix">
+    <div class="footer_wrapper container">
         <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
             <div class="footer_text">
                 <span itemscope itemtype="http://schema.org/Organization">
@@ -76,6 +76,7 @@
     <script src="/resources/js/lightbox.js"></script>
     <script src="/resources/js/jquery.easing.1.3.js"></script>
     <script src="/resources/js/jquery.bxslider.min.js"></script>
+    <script src="/resources/js/wufoo.js"></script>
 
     <script type="text/javascript">
         lightbox.option({

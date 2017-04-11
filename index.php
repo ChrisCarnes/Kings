@@ -1,166 +1,374 @@
-<?php include "functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>King's Green Cleaning | Residential and Commercial Cleaning Services for the OKC Metro</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/" />
 
-    <?php partial("head"); ?>
-
-
-    <!-- Social media -->
-    <?php partial("meta", [
-        "page" => "Home",
-        "url" => "http://www.kingsgreencleaning.com",
-        "description" => "We offer commercial and residential green cleaning services. We will tailor a cleaning service for any type of home, need, or budget. Call us today to get a free estimate.",
-        "image" => "/resources/images/kings-green-cleaning-icon.gif"
-    ]); ?>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400,700">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">    
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/footer.css">
+    <link rel="stylesheet" href="/resources/css/form.css">
+    <link rel="stylesheet" href="/resources/css/buttons.css">
+    <link rel="stylesheet" href="/resources/css/mystyles.css">
 
 </head>
 
-<body id="page_home">
-    <?php partial("analytics"); ?>
-    <?php partial("browser-upgrade"); ?>
+<body id="home">
+    
+    <div id="wrap">
+        <div id="page">
 
-    <div class="main_wrapper">
-        <main class="content_wrapper clearfix" itemprop="mainContentOfPage">
-            <ul class="bxslider">
-                <li>
-                    <div class="banner_wrapper" style="background-image: url(/resources/images/slideshow_1.jpg);">
-                        <div class="banner">
-                            &nbsp;
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="banner_wrapper" style="background-image: url(/resources/images/slideshow_2.jpg);">
-                        <div class="banner">
-                            &nbsp;
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="banner_wrapper" style="background-image: url(/resources/images/slideshow_3.jpg);">
-                        <div class="banner">
-                            &nbsp;
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <a href="/" class="logo-center"><img src="/resources/images/kings-green-cleaning-masthead.png" alt="King's Green Cleaning"></a>
 
-            <?php partial("header"); ?>
+            <nav class="nav nav-primary">
+                <div class="container">
+                    <a href="#" class="nav-mobile-toggle">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <a href="tel:4055496862" class="phone-show">
+                        <i class="fa fa-phone"></i>
+                    </a>
 
-            <div class="section_wrapper home_wrapper">
-                <div class="section">
-                    <div class="sidebar clearfix">
-                        <div class="quotebar">
+                    <ul class="nav-menu nav-menu-left">
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/appraiser/pricing/">
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://helpqa.alamode.com">
+                                Specials
+                            </a>
+                        </li>
+                    </ul>
 
-                            <div class="quote_toggle">
-                                REQUEST A QUOTE<div class="quote_open"></div>
-                            </div>
+                    <ul class="nav-menu nav-menu-right">
+                        <li>
+                            <a href="/appraiser/pricing/">
+                                FAQ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://helpqa.alamode.com">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://helpqa.alamode.com">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
-                            <div class="quote">
-                                <div class="quote_header">
-                                    GO GREEN!<div class="quote_close"></div>
-                                </div>
-                                <div class="quote_intro">
-                                    <strong>
-                                        Are you ready to Go Green in your home?
-                                    </strong>
-                                    Request a quote or schedule a cleaning using the form below, and find out how great it feels to Go Green with King's Green Cleaning!
-                                </div>
-                                <div class="quote_form">
-                                    <form method="POST" action="">
-                                        <div class="label">
-                                            <label for="full_name"><span class="required">Full Name (required):</span></label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="text" name="full_name" id="full_name" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="address">Address:</label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="text" name="address" id="address" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="city">City:</label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="text" name="city" id="city" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="email"><span class="required">Email (required):</span></label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="email" name="email" id="email" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="phone">Phone:</label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="tel" name="phone" id="phone" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="comments">Details/Questions?:</label>
-                                        </div>
-                                        <textarea type="text" name="comments" id="comments" class="" ></textarea>
-                                        <label for="required_field">
-                                            <span class="required_field">Disregard This:</span>
-                                        </label>
-                                        <input type="text" name="required_field" id="required_field" value="" class="required_field" />
-                                        <div class="label required">
-                                            * Required Fields
-                                        </div>
-                                        <div class="submit">
-                                            <input type="submit" name="submit" id="submit" value="Submit me!" class="" />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                        <a href="https://member.angieslist.com/member/store/10517798" target="_blank">
-                            <img src="/resources/images/sb_angie_certified.png" alt="Angie's List Certified" class="sb_badge" />
+            <nav class="nav nav-mobile">
+                <a href="/" class="mobile-logo">
+                    <img src="/resources/images/kings-green-cleaning-masthead.png" alt="King's Green Cleaning">
+                </a>
+                <ul class="nav-menu">
+                    <li>
+                        <a href="/appraiser/elite/">
+                            Home
                         </a>
-                        <a href="https://member.angieslist.com/member/store/10517798" target="_blank">
-                            <img src="/resources/images/sb_angie_ssa2016.png" alt="Angie's List Superior Service Award 2017" class="sb_badge" />
+                    </li>
+                    <li>
+                        <a href="/appraiser/memberships/">
+                            Services
                         </a>
-                        <a href="https://www.facebook.com/KingsGreenCleaning/" target="_blank">
-                            <img src="/resources/images/sb_facebook.png" alt="Find Us on Facebook" class="sb_badge" />
+                    </li>
+                    <li>
+                        <a href="/appraiser/total/">
+                            Specials
                         </a>
-                    </div>
+                    </li>
+                    <li>
+                        <a href="/appraiser/xsites/">
+                            Gift Cards
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/appraiser/titan/">
+                            FAQ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/appraiser/interflood/">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/appraiser/vault/">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-                    <div class="main">
-                        <div class="overview clearfix">
-                            <h1 class="title overview_title">
-                                Home Cleaning Services For a King
-                            </h1>
-                            <h3 class="subtitle overview_subtitle">
-                                Servicing the Oklahoma City Metro, Moore, Edmond, Yukon and Mustang
-                            </h3>
-                            <div class="description overview_description">
-                                <p>
-                                    Give your home the royal treatment with our tailored, eco-friendly residential and commercial cleaning services that are safe for you and the environment.
-                                </p>
-                                <p>
-                                    We are a locally owned and operated green cleaning company, providing the best quality of cleaning products and services. We are bonded, insured, and carry worker&rsquo;s compensation.
-                                </p>
-                                <p>
-                                    <strong>
-                                        Please call us today&nbsp;to schedule your&nbsp;free estimate!!
-                                    </strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="nav-overlay"></div>
 
+            <div class="jumbotron">
+                <div class="container">
                 </div>
             </div>
-        </main>
+
+            <!--
+            <div class="mobile-quote-bar bg-success">
+                <div class="container">
+                    <a href="">
+                        Get a quote!
+                    </a>
+                </div>
+            </div>
+            -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>
+                            Professional home cleaning services for OKC and surrounding areas
+                        </h1>
+                        <p>
+                            Give your home the royal treatment with our tailored, eco-friendly residential and commercial cleaning services that are safe for you and the environment.
+                        </p>
+                        <p>
+                            We are a locally owned and operated green cleaning company, providing the best quality of cleaning products and services. We are bonded, insured, and carry worker’s compensation.
+                        </p>
+                        <h4>
+                            Servicing the Oklahoma City Metro and surrounding areas including:
+                        </h4>
+                        <div class="row service-areas">
+                            <ul class="col-md-3">
+                                <li>
+                                    Edmond
+                                </li>
+                                <li>
+                                    Choctaw
+                                </li>
+                                <li>
+                                    Midwest City
+                                </li>
+                            </ul>
+                            <ul class="col-md-3">
+                                <li>
+                                    Del City
+                                </li>
+                                <li>
+                                    Yukon
+                                </li>
+                                <li>
+                                    Mustang
+                                </li>
+                            </ul>
+                            <ul class="col-md-3">
+                                <li>
+                                    Piedmont
+                                </li>
+                                <li>
+                                    Surrey Hills
+                                </li>
+                                <li>
+                                    Moore
+                                </li>
+                            </ul>
+                            <ul class="col-md-3">
+                                <li>
+                                    Nichols Hills
+                                </li>
+                                <li>
+                                    Deer Creek
+                                </li>
+                                <li>
+                                    Arcadia
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h6>
+                            <strong>
+                                Call us today to schedule your free estimate <a class="" href="">(405) 549-6862</a>
+                            </strong>
+                        </h6>
+                    </div>
+                    <div class="col-md-4 col-md-offset-1">
+                        <form class="lead-cap" accept-charset="UTF-8" action="https://kingsgreencleaning.wufoo.com/forms/z6nxufo1ib9ggl/#public" autocomplete="off" enctype="multipart/form-data" id="form1" method="post" name="form1" novalidate="">
+                            <header>
+                                <h2>
+                                    Get your estimate!
+                                </h2>
+                                <p>
+                                    <em>
+                                        <strong>
+                                            Let's talk about your property details and we'll quickly send you an estimate.
+                                        </strong>
+                                    </em>
+                                </p>
+                            </header>
+                            <label for="Field21" id="title21">
+                                Name:
+                                <input class="form-control" id="Field21" class="block" maxlength="255" name="Field21" tabindex="1" type="text" value="">
+                            </label>
+                            <label for="Field3" id="title3">
+                                Email:
+                                <input class="form-control" id="Field3" maxlength="255" name="Field3" spellcheck="false" tabindex="4" type="email" value="">
+                            </label>
+                            <label id="title24" for="Field24">
+                                Phone
+                                <input class="form-control" id="Field24" name="Field24" type="text"  value="" maxlength="20" tabindex="4" />
+                            </label>
+                                <label>Best time to reach you?</label>
+                            <div class="time">
+                                <label class="text-center">
+                                    <strong>
+                                        FROM
+                                    </strong>
+                                </label>
+                                <select class="form-control" id="Field16" name="Field16" tabindex="8">
+                                    <option selected="selected" value="8 AM">
+                                        8 AM
+                                    </option>
+                                    <option value="9 AM">
+                                        9 AM
+                                    </option>
+                                    <option value="10 AM">
+                                        10 AM
+                                    </option>
+                                    <option value="11 AM">
+                                        11 AM
+                                    </option>
+                                    <option value="12 PM">
+                                        12 PM
+                                    </option>
+                                    <option value="1 PM">
+                                        1 PM
+                                    </option>
+                                    <option value="2 PM">
+                                        2 PM
+                                    </option>
+                                    <option value="3 PM">
+                                        3 PM
+                                    </option>
+                                    <option value="4 PM">
+                                        4 PM
+                                    </option>
+                                </select>
+                                <label class="text-center">
+                                    <strong>
+                                        TO
+                                    </strong>
+                                </label>
+                                <select class="form-control" id="Field19" name="Field19" tabindex="9">
+                                    <option selected="selected" value="9 AM">
+                                        9 AM
+                                    </option>
+                                    <option value="10 AM">
+                                        10 AM
+                                    </option>
+                                    <option value="11 AM">
+                                        11 AM
+                                    </option>
+                                    <option value="12 PM">
+                                        12 PM
+                                    </option>
+                                    <option value="1 PM">
+                                        1 PM
+                                    </option>
+                                    <option value="2 PM">
+                                        2 PM
+                                    </option>
+                                    <option value="3 PM">
+                                        3 PM
+                                    </option>
+                                    <option value="4 PM">
+                                        4 PM
+                                    </option>
+                                    <option value="5 PM">
+                                        5 PM
+                                    </option>
+                                </select>
+                            </div>
+                            <input class="btn btn-secondary btn-lg" id="saveForm" name="saveForm" type="submit" value="Contact me!">
+                            <div class="hidden">
+                                <label for="comment">Do Not Fill This Out</label> 
+                                <textarea cols="1" id="comment" name="comment" rows="1"></textarea>
+                            </div>
+                            <input id="idstamp" name="idstamp" type="hidden" value="weYI6tKk1ZosTe7HziZXXh4ktW8C7ceWJNkXAv+3jjY=">
+                        </form>                        
+                    </div>
+                </div>
+            </div>
+            <div class="logos">
+                <div class="container">
+                    <h4 class="text-center">
+                        Lorem ipsum dolor sit amet consectetur elit adipiscing
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/resources/images/sb_angie_certified-260.png">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/resources/images/sb_angie_ssa2016.png">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/resources/images/sb_facebook.png">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/resources/images/sb_angie_certified-260.png">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/resources/images/sb_angie_ssa2016.png">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/resources/images/sb_facebook.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+                <div class="container">
+                    <span itemscope itemtype="http://schema.org/Organization">
+                        <link itemprop="additionalType" href="http://www.productontology.org/id/Destination_marketing_organization" />
+                        <h6 class="company-name">
+                            <strong itemprop="legalName">
+                                King's Green Cleaning
+                            </strong>
+                            
+                            <span itemprop="description" class="tagline">
+                                &nbsp;|&nbsp; Green Cleaning Cleaning Solutions for Your Home
+                            </span>
+                        </h6>
+                        <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            <span itemprop="streetAddress">1802 N. Shartel</span>,
+                            <span itemprop="addressLocality">Oklahoma City</span>,
+                            <span itemprop="addressRegion">OK</span>
+                            <span itemprop="postalCode">73103</span>
+                            |
+                            <span itemprop="telephone"><a href="tel:4055496862">(405) 549-6862</a></span>
+                        </p>
+                        <p>
+                            Copyright &copy;
+                            <span itemprop="copyrightYear">2017</span>
+                            <span itemprop="copyrightHolder">King's Green Cleaning</span>
+                        </p>
+                    </span>
+                </div>
+            </footer>
+
+
+        </div>
     </div>
 
-    <?php partial("footer"); ?>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/resources/js/mobile-nav.js"></script>
 
 </body>
 </html>

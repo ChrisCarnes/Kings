@@ -5,8 +5,15 @@
     <title>King's Green Cleaning | The Royal Family</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/about/" />
 
-    <?php partial("meta", ["page" => "About"]); ?>
     <?php partial("head"); ?>
+
+    <!-- Social media -->
+    <?php partial("meta", [
+        "page" => "About",
+        "url" => "http://www.kingsgreencleaning.com/about/",
+        "description" => "A family owned and operated company with a passion for green cleaning. We use environmentally safe cleaning products to help keep your family, pets, and community clean and healthy.",
+        "image" => "/resources/images/kings-green-cleaning-icon.gif"
+    ]); ?>
 
 </head>
 
@@ -51,82 +58,9 @@
                                 REQUEST A QUOTE
                                 <div class="quote_open"></div>
                             </div>
-                            <div class="quote">
-                                <div class="quote_header">
-                                    GO GREEN!
-                                    <div class="quote_close"></div>
-                                </div>
-                                <div class="quote_intro">
-                                    <strong>
-                                        Are you ready to Go Green in your home?
-                                    </strong>
-                                    Request a quote or schedule a cleaning using the form below, and find out how great it feels to Go Green with King's Green Cleaning!
-                                </div>
-                                <div class="quote_form">
-                                    <form method="POST" action="">
-                                        <div class="label">
-                                            <label for="full_name">
-                                                <span class="required">
-                                                    Full Name (required):
-                                                </span>
-                                            </label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="text" name="full_name" id="full_name" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="address">
-                                                Address:
-                                            </label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="text" name="address" id="address" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="city">
-                                                City:
-                                            </label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="text" name="city" id="city" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="email">
-                                                <span class="required">
-                                                    Email (required):
-                                                </span>
-                                            </label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="email" name="email" id="email" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="phone">
-                                                Phone:
-                                            </label>
-                                        </div>
-                                        <div class="input">
-                                            <input type="tel" name="phone" id="phone" value="" class="" />
-                                        </div>
-                                        <div class="label">
-                                            <label for="comments">Details/Questions?:</label>
-                                        </div>
-                                        <textarea type="text" name="comments" id="comments" class=""></textarea>
-                                        <label for="required_field">
-                                            <span class="required_field">
-                                                Disregard This:
-                                            </span>
-                                        </label>
-                                        <input type="text" name="required_field" id="required_field" value="" class="required_field" />
-                                        <div class="label required">
-                                            * Required Fields
-                                        </div>
-                                        <div class="submit">
-                                            <input type="submit" name="submit" id="submit" value="Submit me!" class="" />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+
+                            <?php partial("form"); ?>
+
                         </div>
                         <a href="https://member.angieslist.com/member/store/10517798" target="_blank">
                             <img src="/resources/images/sb_angie_certified.png" alt="Angie's List Certified" class="sb_badge" />
@@ -151,23 +85,7 @@
                                     Join Our Team
                                 </h2>
                                 <p>
-                                    <strong>
-                                        To Apply:
-                                    </strong>
-                                </p>
-                                <ul>
-                                    <li>
-                                        Name
-                                    </li>
-                                    <li>
-                                        Email
-                                    </li>
-                                    <li>
-                                        Phone
-                                    </li>
-                                </ul>
-                                <p>
-                                    Or send resume to <a href="mailto:info@kingsgreencleaning.com">info@kingsgreencleaning.com</a>
+                                    We're a fun and exciting Oklahoma City company always looking to add new members to our family.
                                 </p>
                                 <ul>
                                     <li>
@@ -189,9 +107,12 @@
                                         Must have a positive attitude, be efficient, friendly and a good communicator.
                                     </li>
                                     <li>
-                                        Must follow company policy as outlined in company handbook and training. Paid training is provided.
+                                        Must follow company policy as outlined in company handbook and training. <strong>Paid training is provided.</strong>
                                     </li>
                                 </ul>
+                                <p>
+                                    <a class="btn btn-primary" href="mailto:&#x69;&#x6E;&#x66;&#x6F;&#x40;&#x6B;&#x69;&#x6E;&#x67;&#x73;&#x67;&#x72;&#x65;&#x65;&#x6E;&#x63;&#x6C;&#x65;&#x61;&#x6E;&#x69;&#x6E;&#x67;&#x2E;&#x63;&#x6F;&#x6D;?subject=Job%20application%20-%20King%27s%20Green%20Cleaning&body=Please%20provide%20the%20following%20information%20and%20we%27ll%20be%20in%20contact%20with%20you%20soon:%0D%0A%0D%0AName%3A%20%0D%0AEmail%3A%20%0D%0APhone%3A%20%0D%0A%0D%0APlease%20be%20sure%20to%20attach%20your%20resum%C3%A9.">Apply today!</a>
+                                </p>
                             </div>
                         </div>
                     </div>
