@@ -1,3 +1,13 @@
+/*!
+ *  King's Green Cleaning
+ *  @author Chris Carnes
+ */
+
+
+/*
+ *  TYPOGRAPHY
+ */
+
 html {
     background-color: rgba(54, 54, 54, 1);
     border: 0px none transparent;
@@ -64,12 +74,22 @@ p + h4,
 p + h5 {
     margin-top: 1.2em;
 }
-p {
+p:not(:first-child),
+ul:not(:first-child) {
     margin: 1.6rem 0 0;
+}
+li ~ li {
+    margin-top: .4rem;
 }
 hr {
     margin: 40px 0;
 }
+
+
+/*
+ *  PAGE CONTAINERS
+ */
+
 #wrap {
     overflow: hidden;
     position: relative;
@@ -93,6 +113,15 @@ hr {
         -webkit-transform: translate(0, 0)
     }
 }
+#page > .container:last-child {
+    padding-bottom: 80px;
+}
+
+
+/*
+ *  HOME PAGE
+ */
+
 #home p + h6 {
     margin-top: 24px;
 }
@@ -125,15 +154,7 @@ figure.quote figcaption {
 }
 #home .logos {
     background: #fff;
-    /*margin-top: 60px;*/
     padding: 60px 0;
-}
-@media (min-width:600px) {
-    #home .logos .row {
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
 }
 #home .logos img {
     width: 100%;
@@ -157,6 +178,13 @@ figure.quote figcaption {
     top: 17px;
     width: 100%;
 }
+@media (min-width:600px) {
+    #home .logos .row {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+}
 @media (min-width:991px) {
     #home img.badge-cfar,
     #home img.badge-alssa {
@@ -178,26 +206,18 @@ figure.quote figcaption {
         width: 40%;
     }
 }
-
 .jumbotron {
-    /*background-image: url(/resources/images/slideshow_1.jpg);*/
-    /*background-size: cover;*/
-    height: 400px;
-    margin: -59px 0 70px;
+    height: 460px;
+    margin: -59px 0 60px;
     padding: 0;
-}
-.jumbotron > .slide {
-    float: left;
-    height: 400px;
-    position: absolute;
-    width: 100%;
 }
 @media (max-width:767px) {
     .jumbotron .btn {
         left: 50%;
-        margin: 250px 0 0 -100px;
+        margin: 280px 0 0 -100px;
         position: absolute;
         width: 200px;
+        z-index: 1;
     }
 }
 @media (min-width:768px) {
@@ -215,21 +235,201 @@ figure.quote figcaption {
         margin-top: -73px;
     }
 }
-
-
-
-
-    #hero{
-      position:relative;
-      width:400px; /* Set your image width */
-      height:300px; /* Set your image height */
+@-webkit-keyframes imageTransition {
+    0% {
+        opacity:1;
     }
-    #hero img{
-      display:none;
-      position:absolute;
-      top:0;
-      left:0;
+    23.3% {
+        opacity:1;
     }
-    #hero img.active{
-      display:block;
+    33.33% {
+        opacity:0;
     }
+    93.3% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@-moz-keyframes imageTransition {
+    0% {
+        opacity:1;
+    }
+    23.3% {
+        opacity:1;
+    }
+    33.33% {
+        opacity:0;
+    }
+    93.3% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@-o-keyframes imageTransition {
+    0% {
+        opacity:1;
+    }
+    23.3% {
+        opacity:1;
+    }
+    33.33% {
+        opacity:0;
+    }
+    93.3% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes imageTransition {
+    0% {
+        opacity:1;
+    }
+    23.3% {
+        opacity:1;
+    }
+    33.33% {
+        opacity:0;
+    }
+    93.3% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+#image-slider {
+    height: 460px;
+    overflow: hidden;
+}
+#image-slider img {
+    position:absolute;
+    height: 460px;
+    left: 50%;
+    margin-left: -726px;
+    width: 1452px;
+}
+@media (min-width:1452px) {
+    #image-slider img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+}
+#image-slider img {
+    -webkit-animation-name: imageTransition;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 27s;
+    -moz-animation-name: imageTransition;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-duration: 27s;
+    -o-animation-name: imageTransition;
+    -o-animation-timing-function: ease-in-out;
+    -o-animation-iteration-count: infinite;
+    -o-animation-duration: 27s;
+    animation-name: imageTransition;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 27s;
+}
+#image-slider img:nth-of-type(1) {
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    animation-delay: 18s;
+}
+#image-slider img:nth-of-type(2) {
+    -webkit-animation-delay: 9s;
+    -moz-animation-delay: 9s;
+    -o-animation-delay: 9s;
+    animation-delay: 9s;
+}
+#image-slider img:nth-of-type(3) {
+    -webkit-animation-delay: 0;
+    -moz-animation-delay: 0;
+    -o-animation-delay: 0;
+    animation-delay: 0;
+}
+
+/*
+ *  ALL SECONDARY PAGE HERO BACKGROUNDS
+ */
+
+.hero-secondary {
+    background: #ffffff url("/resources/images/gray-wood.jpg") no-repeat center;
+    background-size: cover;
+    height: 320px;
+    margin: -60px 0 60px;
+}
+.hero-secondary:before {
+    background: #000;
+    content: '';
+    height: 320px;
+    left: 0;
+    opacity: .4;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+.hero-secondary h1 {
+    color: #fff;
+    margin-top: 225px;
+    position: relative;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    z-index: 1;
+}
+@media (max-width:540px) {
+    .hero-secondary h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width:991px) {
+    .hero-secondary {
+        margin-top: -66px;
+    }
+}
+@media (max-width:768px){
+    .hero-secondary {
+        margin-top: -73px;
+    }
+}
+
+
+/*
+ *  SERVICES PAGE
+ */
+
+@media (max-width:767px) {
+    #services h3 small {
+        display: block;
+        line-height: 2.5rem;
+    }
+}
+
+
+/*
+ *  CONTACT PAGE
+ */
+
+#contact .map {
+    border:1px solid #d3d3d3;
+    margin-top: 24px;
+}
+
+#contact h5.map-footnote {
+    color: rgba(175, 189, 33, 0.85);
+    font-size: 1.8rem;
+    margin: 0;
+    text-align: center;
+}

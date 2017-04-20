@@ -23,14 +23,19 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header"); ?>
+            <?php partial("header", ["page" => "Specials"]); ?>
+
+            <div class="hero-secondary">
+                <div class="container">
+                    <h1>
+                        Home cleaning specials
+                    </h1>
+                </div>
+            </div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>
-                            Specials
-                        </h1>
                         <h3>
                             Refer a new client and save $50
                         </h3>
@@ -44,7 +49,7 @@
                             Are April showers causing muddy footprints to spring up all through your house? We can clean that up! First time clients thatn book an initial cleaning between April 1st - June 20th receive $30 off.
                         </p>
                         <h3>
-                            Mother appreciation
+                            Mother&rsquo;s appreciation
                         </h3>
                         <p>
                             Get 10% off gift certificates for Mom in the month of May.

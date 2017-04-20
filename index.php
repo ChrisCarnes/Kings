@@ -25,6 +25,15 @@
 
             <?php partial("header"); ?>
 
+            <div class="jumbotron">
+                <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a>
+                <div id="image-slider">
+                    <img src="/resources/images/slideshow_1.jpg">
+                    <img src="/resources/images/slideshow_2.jpg">
+                    <img src="/resources/images/slideshow_3.jpg">
+                </div>
+            </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
@@ -38,7 +47,7 @@
                             We&rsquo;re a locally owned and operated green cleaning company, providing the best quality cleaning products and services. We&rsquo;re also bonded, insured, and carry worker’s compensation so you can rest assured your house is in the right hands.
                         </p>
                         <h5>
-                            Servicing the Oklahoma City Metro and surrounding areas including:
+                            Servicing the Oklahoma City metro and surrounding areas including:
                         </h5>
                         <div class="row service-areas">
                             <ul class="col-xs-6 col-sm-3">

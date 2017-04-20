@@ -23,16 +23,19 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header"); ?>
+            <?php partial("header", ["page" => "FAQ"]); ?>
+
+            <div class="hero-secondary">
+                <div class="container">
+                    <h1>
+                        Frequently asked questions
+                    </h1>
+                </div>
+            </div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-
-                        <h1>
-                            Our frequently asked questions:
-                        </h1>
-
                         <ul class="accordion">
                             <li>
                                 <input type="checkbox" checked>

@@ -10,17 +10,17 @@
                     </a>
 
                     <ul class="nav-menu nav-menu-left">
-                        <li>
+                        <li class="<?php if (($page) == "Home") {echo "active";} ?>">
                             <a href="/">
                                 Home
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "Services") {echo "active";} ?>">
                             <a href="/services/">
                                 Services
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "Specials") {echo "active";} ?>">
                             <a href="/specials/">
                                 Specials
                             </a>
@@ -28,17 +28,17 @@
                     </ul>
 
                     <ul class="nav-menu nav-menu-right">
-                        <li>
+                        <li class="<?php if (($page) == "FAQ") {echo "active";} ?>">
                             <a href="/faq/">
                                 FAQ
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "About") {echo "active";} ?>">
                             <a href="/about/">
                                 About
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "Contact") {echo "active";} ?>">
                             <a href="/contact/">
                                 Contact
                             </a>
@@ -86,10 +86,3 @@
             </nav>
 
             <div class="nav-overlay"></div>
-
-            <div id="hero" class="jumbotron">
-                <!-- <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a> -->
-                <img src="resources/images/slideshow_1.jpg" class="active">
-                <img src="resources/images/slideshow_2.jpg">
-                <img src="resources/images/slideshow_3.jpg">
-            </div>
