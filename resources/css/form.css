@@ -3,13 +3,20 @@
  **
  **/
 
-.lead-cap {
-    background-color: rgba(175, 189, 33, 1.0);
-}
-
 form.lead-cap {
-    color: #fff;
+    background-color: rgba(175, 189, 33, 1.0);
+    border-radius: 4px;
+    box-shadow: 0px 8px 6px -5px rgba(0, 0, 0, .2);
     padding: 30px;
+}
+@media (max-width: 991px) {
+    form.lead-cap {
+        margin-top: 60px;
+    }
+}
+form.lead-cap,
+form.lead-cap h2 {
+    color: #fff;
 }
 form.lead-cap h2 + p {
     font-size: 90%;

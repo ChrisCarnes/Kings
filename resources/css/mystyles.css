@@ -15,6 +15,7 @@ body {
     line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6 {
+    color: rgba(0, 0, 0, .7);
     font-family: Oswald, sans-serif;
     font-weight: 400;
     margin: 0;
@@ -57,55 +58,156 @@ h1 + h4 {
 h1 + h5 {
     margin-top: .4rem
 }
-h1 + h2,
-h1 + h3,
-h1 + h4,
-h1 + h5 {
-    font-weight: 100;
+p + h2,
+p + h3,
+p + h4,
+p + h5 {
+    margin-top: 1.2em;
 }
 p {
     margin: 1.6rem 0 0;
 }
-.logos {
-    background: #fff;
-    margin-top: 40px;
-    padding: 40px 0;
-}
-.logos .row {
-    display: flex;
-    align-items: center;
-}
-.logos img {
-    width: 100%;
-}
-.logos h4 {
-    margin-bottom: 20px;
-}
 hr {
     margin: 40px 0;
 }
-
+#wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+#wrap.nav-mobile-active #page {
+    transform: translate(70%, 0);
+    -webkit-transform: translate(70%, 0)
+}
+#wrap #page {
+    background: #fff;
+    height: 100%;
+    position: relative;
+    transition: transform 300ms ease;
+    -webkit-transition: transform 300ms ease;
+    width: 100%
+}
+@media (max-width: 992px) {
+    #wrap #page {
+        transform: translate(0, 0);
+        -webkit-transform: translate(0, 0)
+    }
+}
 #home p + h6 {
     margin-top: 24px;
 }
-#home p + h4 {
+#home p + h5 {
     margin: 24px 0 10px;
 }
-.service-areas ul {
+#home .service-areas ul {
     list-style-type: none;
     margin-bottom: 26px;
 }
-
+figure.quote {
+    background: rgba(0, 0, 0, .05);
+    border-radius: 8px;
+    /*color: #fff;*/
+    font-size: 2.8rem;
+    font-style: italic;
+    margin: 70px 0 0;
+    padding: 70px 0;
+}
+figure.quote blockquote {
+    border: none;
+    font-family: Oswald, sans-serif;
+    font-size: 2.8rem;
+    margin: 0 0 1.4rem;
+    padding: 0;
+}
+figure.quote figcaption {
+    font-size: 1.4rem;
+    font-style: normal;
+}
+#home .logos {
+    background: #fff;
+    /*margin-top: 60px;*/
+    padding: 60px 0;
+}
+@media (min-width:600px) {
+    #home .logos .row {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+}
+#home .logos img {
+    width: 100%;
+}
+#home .logos h4 {
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+#home .logos h4 span {
+    background: #fff;
+    padding: 0 12px;
+    position: relative;
+}
+#home .logos h4:before {
+    background: #d3d3d3;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 17px;
+    width: 100%;
+}
+@media (min-width:991px) {
+    #home img.badge-cfar,
+    #home img.badge-alssa {
+        width: 100px;
+    }
+}
+@media (max-width:599px) {
+    #home .logos img,
+    #home img.badge-cfar,
+    #home img.badge-alssa {
+        display: block;
+        margin: 0 auto 30px;
+    }
+    #home .logos img {
+        width: 48%;
+    }
+    #home img.badge-cfar,
+    #home img.badge-alssa {
+        width: 40%;
+    }
+}
 
 .jumbotron {
-    background-image: url(/resources/images/slideshow_1.jpg);
-    background-size: cover;
-    margin: -62px 0 40px;
-    text-align: center;
+    /*background-image: url(/resources/images/slideshow_1.jpg);*/
+    /*background-size: cover;*/
+    height: 400px;
+    margin: -59px 0 70px;
+    padding: 0;
+}
+.jumbotron > .slide {
+    float: left;
+    height: 400px;
+    position: absolute;
+    width: 100%;
+}
+@media (max-width:767px) {
+    .jumbotron .btn {
+        left: 50%;
+        margin: 250px 0 0 -100px;
+        position: absolute;
+        width: 200px;
+    }
+}
+@media (min-width:768px) {
+    .jumbotron .btn {
+        display: none;
+    }
 }
 @media (max-width:991px) {
     .jumbotron {
-        margin-top: -66px;
+        margin: -66px 0 50px;
     }
 }
 @media (max-width:768px){
@@ -113,21 +215,21 @@ hr {
         margin-top: -73px;
     }
 }
-.jumbotron .container {
-    height: 300px;
-}
 
 
 
-footer {
-    padding-top: 30px;
-    background-color: rgba(54, 54, 54, 1);
-    color: #fff;
-}
 
-@media (max-width: 992px) {
-    .footer {
-        margin-top: 40px;
+    #hero{
+      position:relative;
+      width:400px; /* Set your image width */
+      height:300px; /* Set your image height */
     }
-}
-
+    #hero img{
+      display:none;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+    #hero img.active{
+      display:block;
+    }

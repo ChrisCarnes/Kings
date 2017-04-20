@@ -87,9 +87,6 @@
 
             <div class="nav-overlay"></div>
 
-            <div id="hero" class="jumbotron">
-                <!-- <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a> -->
-                <img src="resources/images/slideshow_1.jpg" class="active">
-                <img src="resources/images/slideshow_2.jpg">
-                <img src="resources/images/slideshow_3.jpg">
+            <div class="jumbotron">
+                <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a>
             </div>

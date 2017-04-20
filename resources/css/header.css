@@ -5,29 +5,6 @@
  * @version 0.1.23
  */
 
-#wrap {
-    overflow: hidden;
-    position: relative;
-    width: 100%
-}
-#wrap.nav-mobile-active #page {
-    transform: translate(70%, 0);
-    -webkit-transform: translate(70%, 0)
-}
-#wrap #page {
-    background: #f3f3f3;
-    height: 100%;
-    position: relative;
-    transition: transform 300ms ease;
-    -webkit-transition: transform 300ms ease;
-    width: 100%
-}
-@media (max-width: 992px) {
-    #wrap #page {
-        transform: translate(0, 0);
-        -webkit-transform: translate(0, 0)
-    }
-}
 nav > .container:after {
     content: '';
     display: block;
@@ -115,7 +92,7 @@ a.mobile-logo {
 .nav .nav-menu.nav-menu-right {
     float: right
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .nav.nav-primary .nav-menu {
         display: none
     }
