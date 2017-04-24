@@ -28,9 +28,9 @@
             <div class="jumbotron">
                 <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a>
                 <div id="image-slider">
-                    <img src="/resources/images/slideshow_1.jpg">
-                    <img src="/resources/images/slideshow_2.jpg">
-                    <img src="/resources/images/slideshow_3.jpg">
+                    <div id="image-1"></div>
+                    <div id="image-2"></div>
+                    <div id="image-3"></div>
                 </div>
             </div>
 
@@ -102,7 +102,7 @@
                         </h5>
                     </div>
                     <div class="col-md-4 col-md-offset-1">
-                        <?php partial("form"); ?>
+                        <?php partial("form-mailchimp"); ?>
                     </div>
                 </div>
             </div>

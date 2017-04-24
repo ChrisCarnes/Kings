@@ -1,8 +1,5 @@
 /*!
- * Matter
- *
- * @author Creative team
- * @version 0.1.23
+ * Mobile Nav
  */
 "use strict";
 +function(t) {

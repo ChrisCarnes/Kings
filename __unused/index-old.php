@@ -58,7 +58,7 @@
                                 REQUEST A QUOTE<div class="quote_open"></div>
                             </div>
 
-                            <?php partial("form"); ?>
+                            <?php partial("form-mailchimp"); ?>
 
                         </div>
                         <a href="https://member.angieslist.com/member/store/10517798" target="_blank">

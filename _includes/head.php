@@ -3,11 +3,6 @@
     <link rel="icon" type="image/png" href="favicon.ico">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400,600">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">    
-    <link rel="stylesheet" href="/resources/css/bootstrap.css">
-    <link rel="stylesheet" href="/resources/css/header.css">
-    <link rel="stylesheet" href="/resources/css/footer.css">
-    <link rel="stylesheet" href="/resources/css/form.css">
-    <link rel="stylesheet" href="/resources/css/buttons.css">
-    <link rel="stylesheet" href="/resources/css/accordion.css">
-    <link rel="stylesheet" href="/resources/css/mystyles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/kings.min.css">

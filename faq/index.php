@@ -190,7 +190,7 @@
                         </ul>
                     </div>
                     <div class="col-md-4 col-md-offset-1">
-                        <?php partial("form"); ?>
+                        <?php partial("form-mailchimp"); ?>
                     </div>
                 </div>
             </div>

@@ -29,23 +29,7 @@
                 </div>
             </footer>
 
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-            <script src="/resources/js/mobile-nav.js"></script>
-            <script src="/resources/js/myscript.js"></script>
-
-            <!--
-            <script>
-                function swapImages(){
-                    var $active = $('#hero .active');
-                    var $next = ($('#hero .active').next().length > 0) ? $('#hero .active').next() : $('#hero img:first');
-                    $active.fadeOut(function(){
-                        $active.removeClass('active');
-                        $next.fadeIn().addClass('active');
-                    });
-                }
-
-                $(document).ready(function(){
-                    setInterval('swapImages()', 7000);
-                });
-            </script>
-            -->
+            <script src="/public/js/jquery.min.js"></script>
+            <script src="/public/js/mobile-nav.min.js"></script>
+            <script src="/public/js/smooth-scroll.min.js"></script>
+            <script src="/public/js/validation.min.js"></script>
