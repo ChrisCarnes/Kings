@@ -37,37 +37,54 @@
                 <div class="row">
                     <div class="col-md-7">
                         <p>
-                            King&rsquo;s Green Cleaning was established in 2006. It is a family owned and operated business to this day. We started the business because we wanted to offer luxury-cleaning service that was tailored to meet each of our client&rsquo;s individual needs. After realizing the effects of traditional cleaning products on our health we started cleaning green.&nbsp; Protecting our employees and client&rsquo;s health was very important to us so we made the transition to eco-friendly products. At King&rsquo;s Green Cleaning nothing makes us happier than giving our clients back precious time to do the things that they love. We love our employees and clients and we look forward to being the premiere green cleaning service in the Oklahoma City area.
+                            King&rsquo;s Green Cleaning is a family owned and operated business established in 2006. We started the business to offer luxury cleaning service tailored to meet each of our client&rsquo;s individual needs. After realizing the effects of traditional cleaning products on our own health, we made the switch to green, eco-friendly cleaning products.
+                        </p>
+                        <p>
+                            At King&rsquo;s Green Cleaning nothing makes us happier than giving our clients back precious time for the things they enjoy and people they cherish. We love our employees and clients and we look forward to being the premiere green cleaning service in the OKC area.
                         </p>
                         <h2>
                             Join Our Team
                         </h2>
                         <p>
-                            We're a fun and exciting Oklahoma City company always looking to add new members to our family.
+                            We're a fun and exciting Oklahoma City company always looking to add new members to our family. If you:
                         </p>
-                        <ul>
-                            <li>
-                                Must pass a background check.
-                            </li>
-                            <li>
-                                Must be comfortable with technology.
-                            </li>
-                            <li>
-                                Must be able to work in a team environment.
-                            </li>
-                            <li>
-                                Must be detail oriented.
-                            </li>
-                            <li>
-                                Must have good customer service skills.
-                            </li>
-                            <li>
-                                Must have a positive attitude, be efficient, friendly and a good communicator.
-                            </li>
-                            <li>
-                                Must follow company policy as outlined in company handbook and training. <strong>Paid training is provided.</strong>
-                            </li>
-                        </ul>
+                        <div class="row skills">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        can pass a background check
+                                    </li>
+                                    <li>
+                                        are comfortable with technology
+                                    </li>
+                                    <li>
+                                        can work in a team environment
+                                    </li>
+                                    <li>
+                                        are detail oriented, but efficient
+                                    </li>
+                                </ul>                                
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        have good customer service skills
+                                    </li>
+                                    <li>
+                                        have a positive attitude
+                                    </li>
+                                    <li>
+                                        are a great communicator
+                                    </li>
+                                    <li>
+                                        can follow company policies
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>
+                            We'd love to have you as part of our team. <strong>Paid training is provided.</strong>
+                        </p>
                         <p>
                             <a class="btn btn-primary btn-lg" href="mailto:&#x69;&#x6E;&#x66;&#x6F;&#x40;&#x6B;&#x69;&#x6E;&#x67;&#x73;&#x67;&#x72;&#x65;&#x65;&#x6E;&#x63;&#x6C;&#x65;&#x61;&#x6E;&#x69;&#x6E;&#x67;&#x2E;&#x63;&#x6F;&#x6D;?subject=Job%20application%20-%20King%27s%20Green%20Cleaning&body=Please%20provide%20the%20following%20information%20and%20we%27ll%20be%20in%20contact%20with%20you%20soon:%0D%0A%0D%0AName%3A%20%0D%0AEmail%3A%20%0D%0APhone%3A%20%0D%0A%0D%0APlease%20be%20sure%20to%20attach%20your%20resum%C3%A9.">Apply today!</a>
                         </p>
