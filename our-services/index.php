@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
     <title>King's Green Cleaning | Home Cleaning Services</title>
-    <link rel="canonical" href="http://kingsgreencleaning.com/services/" />
+    <link rel="canonical" href="http://kingsgreencleaning.com/our-services/" />
 
-    <?php partial("meta", [
+    <?php partial("meta", array(
         "page" => "Services",
-        "uri" => "/services/",
+        "uri" => "/our-services/",
         "description" => "Provides eco-friendly home and office cleaning services on a weekly, bi-weekly or monthly schedule! We have deep cleaning services, move in/out, construction, and vacation rental cleanings as well.",
-        "image" => "/resources/images/kings-green-cleaning-icon.gif"
-    ]); ?>
+        "image" => "/images/kings-green-cleaning-icon.gif"
+    )); ?>
 
     <?php partial("head"); ?>
 
@@ -23,7 +23,7 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header", ["page" => "Services"]); ?>
+            <?php partial("header", array("page" => "Services")); ?>
 
             <div class="hero-secondary">
                 <div class="container">

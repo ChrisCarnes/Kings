@@ -8,7 +8,7 @@ function partial ($filename = "", $variables = array()) {
         $filename .= ".php";
     }
     
-    $filepath = __DIR__ . "/_includes/$filename";
+    $filepath = __DIR__ . "/_partials/$filename";
 
     if (file_exists($filepath)) {
         ob_start();

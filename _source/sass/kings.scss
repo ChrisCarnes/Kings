@@ -9,11 +9,16 @@
 // Reusable parts and pieces
 @import "components/accordions";
 @import "components/buttons";
-@import "components/form";
+@import "components/forms";
 
 // Scaffolding and structure
+@import "layout/containers";
 @import "layout/footer";
+@import "layout/hero";
 @import "layout/nav";
+@import "layout/typography";
 
 // Page specific
-@import "pages/mystyles";
+@import "pages/contact";
+@import "pages/home";
+@import "pages/services";

@@ -4,13 +4,16 @@
 <head>
     <title>King's Green Cleaning | Residential and Commercial Cleaning Services for the OKC Metro</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/" />
-
-    <?php partial("meta", [
+    
+    <!-- Google Search Console verification tag -->
+    <meta name="google-site-verification" content="lRWKPde5q21-f3p52OuchcwczN0SxXuRdWqYb35DyRU" />
+    
+    <?php partial("meta", array(
         "page" => "Home",
         "uri" => "/",
         "description" => "We offer commercial and residential green cleaning services. We will tailor a cleaning service for any type of home, need, or budget. Call us today to get a free estimate.",
-        "image" => "/resources/images/kings-green-cleaning-icon.gif"
-    ]); ?>
+        "image" => "/images/kings-green-cleaning-icon.gif"
+    )); ?>
 
     <?php partial("head"); ?>
 
@@ -23,10 +26,10 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header"); ?>
+            <?php partial("header", array("page" => "Home")); ?>
 
             <div class="jumbotron">
-                <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a>
+                <a class="btn btn-primary btn-lg" href="#mc-embedded-subscribe-form">Get your estimate!</a>
                 <div id="image-slider">
                     <div id="image-1"></div>
                     <div id="image-2"></div>
@@ -117,7 +120,7 @@
                             <figcaption>
                                     <span itemprop="author">Chris Carnes</span>, 
                                     <cite itemprop="name">
-                                        <a itemprop="url" href="https://www.google.com/maps/contrib/114968947813690152024/reviews/@35.4884814,-97.5416006,11z/data=!3m1!4b1!4m3!8m2!3m1!1e1">Google review</a>
+                                        <a itemprop="url" href="https://www.google.com/maps/contrib/114968947813690152024/reviews/@35.4884814,-97.5416006,11z/data=!3m1!4b1!4m3!8m2!3m1!1e1" target="_blank">Google review</a>
                                     </cite>
                             </figcaption>
                         </div>
@@ -133,17 +136,20 @@
                         </span>
                     </h4>
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-2">
-                            <img alt="Angie's List Certified" src="/resources/images/angies-list-certified.gif">
+                        <div class="col-md-2 col-md-offset-1">
+                            <img alt="Association of Residential Cleaning Services International" class="badge-arcsi" src="/images/arcsi.gif">
                         </div>
                         <div class="col-md-2">
-                            <img alt="Angie's List Super Service Award 2016" class="badge-alssa" src="/resources/images/angies-list-super-service-award-2016.jpg">
+                            <img alt="Angie's List Super Service Award 2016" class="badge-alssa" src="/images/angies-list-super-service-award-2016.jpg">
                         </div>
                         <div class="col-md-2">
-                            <img alt="Cleaning for a Reason Proud Partner" class="badge-cfar" src="/resources/images/cleaning-for-a-reason-proud-partner.jpg">
+                            <img alt="Keep It Local OK" class="badge-kilo" src="/images/keep-it-local-ok-logo.png">
                         </div>
                         <div class="col-md-2">
-                            <a href="https://www.facebook.com/KingsGreenCleaning/"><img alt="Find King's Gren Cleaning on Facebook" src="/resources/images/find-us-on-facebook.gif"></a>
+                            <img alt="Cleaning for a Reason Proud Partner" class="badge-cfar" src="/images/cleaning-for-a-reason-proud-partner.jpg">
+                        </div>
+                        <div class="col-md-2">
+                            <img alt="Angie's List Certified" src="/images/angies-list-certified.gif">
                         </div>
                     </div>
                 </div>

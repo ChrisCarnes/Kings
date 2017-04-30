@@ -5,12 +5,12 @@
     <title>King's Green Cleaning | The Royal Family</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/about/" />
 
-    <?php partial("meta", [
+    <?php partial("meta", array(
         "page" => "About",
         "uri" => "/about/",
         "description" => "A family owned and operated company with a passion for green cleaning. We use environmentally safe cleaning products to help keep your family, pets, and community clean and healthy.",
-        "image" => "/resources/images/kings-green-cleaning-icon.gif"
-    ]); ?>
+        "image" => "/images/kings-green-cleaning-icon.gif"
+    )); ?>
 
     <?php partial("head"); ?>
 
@@ -23,7 +23,7 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header", ["page" => "About"]); ?>
+            <?php partial("header", array("page" => "About")); ?>
 
             <div class="hero-secondary">
                 <div class="container">

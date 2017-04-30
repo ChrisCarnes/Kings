@@ -1,4 +1,4 @@
-            <a href="/" class="logo-center"><img src="/resources/images/kings-green-cleaning-masthead.png" alt="King's Green Cleaning"></a>
+            <a href="/" class="logo-center"><img src="/images/kings-green-cleaning-masthead.png" alt="King's Green Cleaning"></a>
 
             <nav class="nav nav-primary">
                 <div class="container">
@@ -10,17 +10,17 @@
                     </a>
 
                     <ul class="nav-menu nav-menu-left">
-                        <li>
+                        <li class="<?php if (($page) == "Home") {echo "active";} ?>">
                             <a href="/">
                                 Home
                             </a>
                         </li>
-                        <li>
-                            <a href="/services/">
+                        <li class="<?php if (($page) == "Services") {echo "active";} ?>">
+                            <a href="/our-services/">
                                 Services
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "Specials") {echo "active";} ?>">
                             <a href="/specials/">
                                 Specials
                             </a>
@@ -28,17 +28,17 @@
                     </ul>
 
                     <ul class="nav-menu nav-menu-right">
-                        <li>
+                        <li class="<?php if (($page) == "FAQ") {echo "active";} ?>">
                             <a href="/faq/">
                                 FAQ
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "About") {echo "active";} ?>">
                             <a href="/about/">
                                 About
                             </a>
                         </li>
-                        <li>
+                        <li class="<?php if (($page) == "Contact") {echo "active";} ?>">
                             <a href="/contact/">
                                 Contact
                             </a>
@@ -49,7 +49,7 @@
 
             <nav class="nav nav-mobile">
                 <a href="/" class="mobile-logo">
-                    <img src="/resources/images/kings-green-cleaning-masthead.png" alt="King's Green Cleaning">
+                    <img src="/images/kings-green-cleaning-masthead.png" alt="King's Green Cleaning">
                 </a>
                 <ul class="nav-menu">
                     <li>
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/services/">
+                        <a href="/our-services/">
                             Services
                         </a>
                     </li>
@@ -86,7 +86,3 @@
             </nav>
 
             <div class="nav-overlay"></div>
-
-            <div class="jumbotron">
-                <a class="btn btn-primary btn-lg" href="#form1">Get your estimate!</a>
-            </div>

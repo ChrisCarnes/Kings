@@ -1,0 +1,330 @@
+#!/usr/bin/env ruby
+start = Time.now
+require "time";
+
+# Coloring and styling of strings
+class String
+    def method_missing(name, *args)
+        colors = :white, :black, :red, :green, :yellow, :blue, :magenta, :cyan
+        styles, menu = "", [:bold, :fade, :italic]
+        menu.reject {|s| !args.include?(s)}.each{|s| styles += "#{menu.index(s)+1};"}
+        offset = args.include?(:inverse) ? 100 : 30;
+
+        "\e[#{styles}#{colors.index(name)-1 + offset}m#{self}\e[0m"
+    end
+
+    def set? () ARGV.grep(/^(-|--)?#{self}(=.*)?$/).length > 0 end
+    def get () 
+        match = ARGV.grep(/^#{self}=(.*?)$/)
+        match.length > 0 ? match[0].gsub(/^(.*?)=/, '') : ARGV[ARGV.index{|e| e =~ /^-?-?#{self}/} + 1]
+    end
+end
+
+# Get a flags value
+
+if !"to".set?
+    puts "The --to flag is required".red
+    abort
+end
+
+# DirectoryGenerator Pages
+pages = [
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Alabama.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Alaska.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Alberta.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Arizona.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Arkansas.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_BritishColumbia.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_California.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Colorado.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Connecticut.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Delaware.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_DistrictOfColumbia.htm",          "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Florida.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Georgia.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Hawaii.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Idaho.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Illinois.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Indiana.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Iowa.htm",                        "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Kansas.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Kentucky.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Louisiana.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Maine.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Manitoba.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Maryland.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Massachusetts.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Michigan.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Minnesota.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Mississippi.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Missouri.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Montana.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Nebraska.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Nevada.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NewBrunswick.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NewfoundlandAndLabrador.htm",     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NewHampshire.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NewJersey.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NewMexico.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NewYork.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NorthCarolina.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NorthDakota.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NorthwestTerritories.htm",        "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_NovaScotia.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Nunavut.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Ohio.htm",                        "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Oklahoma.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Ontario.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Oregon.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Pennsylvania.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_PrinceEdwardIsland.htm",          "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_PuertoRico.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Quebec.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_RhodeIsland.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Saskatchewan.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_SouthCarolina.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_SouthDakota.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Tennessee.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Texas.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Utah.htm",                        "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Vermont.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Virginia.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Washington.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_WestVirginia.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Wisconsin.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Wyoming.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Agent_Yukon.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Alabama.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Alaska.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Alberta.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Arizona.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Arkansas.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_BritishColumbia.htm",         "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_California.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Colorado.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Connecticut.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Delaware.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_DistrictOfColumbia.htm",      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Florida.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Georgia.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Hawaii.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Idaho.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Illinois.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Indiana.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Iowa.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Kansas.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Kentucky.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Louisiana.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Maine.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Manitoba.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Maryland.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Massachusetts.htm",           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Michigan.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Minnesota.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Mississippi.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Missouri.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Montana.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Nebraska.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Nevada.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NewBrunswick.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NewfoundlandAndLabrador.htm", "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NewHampshire.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NewJersey.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NewMexico.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NewYork.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NorthCarolina.htm",           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NorthDakota.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NorthwestTerritories.htm",    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_NovaScotia.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Nunavut.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Ohio.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Oklahoma.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Ontario.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Oregon.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Pennsylvania.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_PrinceEdwardIsland.htm",      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_PuertoRico.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Quebec.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_RhodeIsland.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Saskatchewan.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_SouthCarolina.htm",           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_SouthDakota.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Tennessee.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Texas.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Utah.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Vermont.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Virginia.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Washington.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_WestVirginia.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Wisconsin.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Wyoming.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Appraiser_Yukon.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/default.htm",                           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Alabama.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Alaska.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Alberta.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Arizona.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Arkansas.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_BritishColumbia.htm",         "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_California.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Colorado.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Connecticut.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Delaware.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_DistrictOfColumbia.htm",      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Florida.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Georgia.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Hawaii.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Idaho.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Illinois.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Indiana.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Iowa.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Kansas.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Kentucky.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Louisiana.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Maine.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Manitoba.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Maryland.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Massachusetts.htm",           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Michigan.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Minnesota.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Mississippi.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Missouri.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Montana.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Nebraska.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Nevada.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NewBrunswick.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NewfoundlandAndLabrador.htm", "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NewHampshire.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NewJersey.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NewMexico.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NewYork.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NorthCarolina.htm",           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NorthDakota.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NorthwestTerritories.htm",    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_NovaScotia.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Nunavut.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Ohio.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Oklahoma.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Ontario.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Oregon.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Pennsylvania.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_PrinceEdwardIsland.htm",      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_PuertoRico.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Quebec.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_RhodeIsland.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Saskatchewan.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_SouthCarolina.htm",           "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_SouthDakota.htm",             "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Tennessee.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Texas.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Utah.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Vermont.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Virginia.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Washington.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_WestVirginia.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Wisconsin.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Wyoming.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Inspector_Yukon.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Alabama.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Alaska.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Alberta.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Arizona.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Arkansas.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_BritishColumbia.htm",            "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_California.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Colorado.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Connecticut.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Delaware.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_DistrictOfColumbia.htm",         "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Florida.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Georgia.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Hawaii.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Idaho.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Illinois.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Indiana.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Iowa.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Kansas.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Kentucky.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Louisiana.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Maine.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Manitoba.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Maryland.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Massachusetts.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Michigan.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Minnesota.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Mississippi.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Missouri.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Montana.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Nebraska.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Nevada.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NewBrunswick.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NewfoundlandAndLabrador.htm",    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NewHampshire.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NewJersey.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NewMexico.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NewYork.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NorthCarolina.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NorthDakota.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NorthwestTerritories.htm",       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_NovaScotia.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Nunavut.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Ohio.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Oklahoma.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Ontario.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Oregon.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Pennsylvania.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_PrinceEdwardIsland.htm",         "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_PuertoRico.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Quebec.htm",                     "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_RhodeIsland.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Saskatchewan.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_SouthCarolina.htm",              "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_SouthDakota.htm",                "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Tennessee.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Texas.htm",                      "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Utah.htm",                       "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Vermont.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Virginia.htm",                   "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Washington.htm",                 "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_WestVirginia.htm",               "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Wisconsin.htm",                  "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Wyoming.htm",                    "2015-02-02T10:00:00+00:00", "daily"],
+    ["http://www.alamode.com/DirectoryGenerator/Lender_Yukon.htm",                      "2015-02-02T10:00:00+00:00", "daily"]
+]
+
+# Iterate glob results
+puts "    → Collecting paths".magenta(:italic, :fade) if "verbose".set?
+Dir.glob('**/*/').each do |path|
+    unless path =~ /^(_|node_modules|resources|public|bin)/
+        pages.push([
+            "https://kingsgreencleaning.com/#{path}",
+            File.mtime(path).iso8601,
+            "weekly"
+        ])
+    end
+end
+
+# Replace each array item XML
+puts "    → Converting paths to <url> structures".magenta(:italic, :fade) if "verbose".set?
+pages.each_with_index do |data, index|
+    pages[index] = %{
+        <url>
+            <loc>#{data[0]}</loc>
+            <lastmod>#{data[1]}</lastmod>
+            <changefreq>#{data[2]}</changefreq>
+        </url>
+    }
+end
+
+# Save out the contents to sitemap.xml
+puts "    → Saving out to #{"to".get.gsub(/#{ENV['HOME']}/, '')}".magenta(:italic, :fade) if "verbose".set?
+File.open("#{"to".get}/sitemap.xml", 'w') { |file| 
+    file.write([
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        pages.join("\n"),
+        '</urlset>'
+    ].join("\n"))
+}
+
+puts "    → Completed in ".magenta(:fade) + "#{(Time.now - start).round(3)}".blue(:bold, :fade) + " seconds".magenta(:fade) if "verbose".set?

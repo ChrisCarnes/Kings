@@ -1,0 +1,204 @@
+/*
+ *  HOME PAGE
+ */
+
+#home {
+
+    p {
+        + h6 {
+            margin-top: 24px;
+        }
+        + h5 {
+            margin: 24px 0 10px;
+        }
+    }
+
+    .service-areas ul {
+        list-style-type: none;
+        margin-bottom: .5rem;
+
+        &:last-child {
+            margin-bottom: 2.4rem;
+        }
+    }
+
+    #image-slider {
+        height: 460px;
+
+        > div {
+            animation-duration: 27s;
+            animation-iteration-count: infinite;
+            animation-name: imageTransition;
+            animation-timing-function: ease-in-out;
+            background-position: center bottom;
+            background-size: cover;
+            height: 460px;
+            position: absolute;
+            width: 100%;
+
+            &:nth-of-type(1) {
+                background-image: url(/images/slideshow_1.jpg);
+                animation-delay: 18s;
+            }
+            &:nth-of-type(2) {
+                background-image: url(/images/slideshow_2.jpg);
+                animation-delay: 9s;
+            }
+            &:nth-of-type(3) {
+                background-image: url(/images/slideshow_3.jpg);
+                animation-delay: 0;
+            }
+        }
+    }
+
+    @keyframes imageTransition {
+        0% {
+            opacity:1;
+        }
+        23.3% {
+            opacity:1;
+        }
+        33.33% {
+            opacity:0;
+        }
+        93.3% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+
+    figure.quote {
+        background: rgba(0, 0, 0, .05);
+        border-radius: 8px;
+        /*color: #fff;*/
+        font-size: 2.8rem;
+        font-style: italic;
+        margin: 70px 0 0;
+        padding: 70px 0;
+
+        blockquote {
+            border: none;
+            font-family: Oswald, sans-serif;
+            font-size: 2.8rem;
+            margin: 0 0 1.4rem;
+            padding: 0;
+        }
+        
+        figcaption {
+            font-size: 1.4rem;
+            font-style: normal;
+        }
+    }
+
+    .logos {
+        background: #fff;
+        padding: 60px 0;
+
+        img {
+            width: 100%;
+            
+            @media (max-width:599px) {
+                width: 48%;
+            }
+        }
+
+        h4 {
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+
+
+            @media (min-width:768px) {
+                span {
+                    background: #fff;
+                    padding: 0 12px;
+                    position: relative;
+                }
+
+                &:before {
+                    background: #d3d3d3;
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    position: absolute;
+                    top: 17px;
+                    width: 100%;
+                }
+            }
+        }
+
+        @media (min-width:600px) {
+            .row {
+                display: flex;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    }
+
+    .jumbotron {
+        height: 460px;
+        margin: -59px 0 60px;
+        padding: 0;
+
+        @media (max-width:991px) {
+            margin: -66px 0 50px;
+        }
+        @media (max-width:768px){
+            margin-top: -73px;
+        }
+
+        .btn {
+            left: 50%;
+            margin: 280px 0 0 -100px;
+            position: absolute;
+            width: 200px;
+            z-index: 1;
+
+            @media (min-width:768px) {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width:991px) {
+        .logos img.badge-kilo {
+            width: 60%;
+        }
+    }
+
+    @media (max-width:768px) {
+        .logos img.badge-kilo {
+            width: 40%;
+        }
+    }
+
+    @media (max-width:599px) {
+        .logos img {
+            display: block;
+            margin: 0 auto 30px;
+
+            &.badge-cfar,
+            &.badge-alssa,
+            &.badge-arcsi,
+            &.badge-kilo {
+                width: 40%;
+            }
+        }
+    }
+
+    @media (min-width:992px) {
+        .logos img {
+            &.badge-cfar,
+            &.badge-alssa {
+                width: 100px;
+            }
+            &.badge-kilo {
+                width: 130px;
+            }
+        }
+    }
+}
+

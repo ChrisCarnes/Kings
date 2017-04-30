@@ -5,12 +5,12 @@
     <title>King's Green Cleaning | Contact Us</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/contact/" />
 
-    <?php partial("meta", [
+    <?php partial("meta", array(
         "page" => "Contact",
         "uri" => "/contact/",
         "description" => "Contact King's Green Cleaning for all your home cleaning needs.",
-        "image" => "/resources/images/kings-green-cleaning-icon.gif"
-    ]); ?>
+        "image" => "/images/kings-green-cleaning-icon.gif"
+    )); ?>
 
     <?php partial("head"); ?>
 
@@ -23,7 +23,7 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header", ["page" => "Contact"]); ?>
+            <?php partial("header", array("page" => "Contact")); ?>
 
             <div class="hero-secondary">
                 <div class="container">

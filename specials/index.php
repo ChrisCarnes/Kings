@@ -5,12 +5,12 @@
     <title>King's Green Cleaning | Home Cleaning Specials</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/specials/" />
 
-    <?php partial("meta", [
+    <?php partial("meta", array(
         "page" => "Specials",
         "uri" => "/specials/",
         "description" => "Keep an eye out for our special deals and incentives. We love to get referrals and reviews. We also will have specials for holidays and special occasions.",
-        "image" => "/resources/images/kings-green-cleaning-icon.gif"
-    ]); ?>
+        "image" => "/images/kings-green-cleaning-icon.gif"
+    )); ?>
 
     <?php partial("head"); ?>
 
@@ -23,7 +23,7 @@
     <div id="wrap">
         <div id="page">
 
-            <?php partial("header", ["page" => "Specials"]); ?>
+            <?php partial("header", array("page" => "Specials")); ?>
 
             <div class="hero-secondary">
                 <div class="container">
@@ -46,7 +46,7 @@
                             New clients can save $30
                         </h3>
                         <p>
-                            Are April showers causing muddy footprints to spring up all through your house? We can clean that up! First time clients thatn book an initial cleaning between April 1st - June 20th receive $30 off.
+                            Are April showers causing muddy footprints to spring up all through your house? We can clean that up! First time clients that book an initial cleaning between April 1st - June 20th receive $30 off.
                         </p>
                         <h3>
                             Mother&rsquo;s appreciation

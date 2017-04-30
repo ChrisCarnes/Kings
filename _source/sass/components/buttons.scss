@@ -1,33 +1,50 @@
+/*
+ *  Components | Buttons
+ */
 
 .btn {
     box-shadow: 0px 7px 4px -5px rgba(0, 0, 0, .2);
     font-weight: bold;
-}
-.btn:hover {
-    box-shadow: none;
-}
 
-.btn-default {
-    color: rgba(175, 189, 33, 1.0);
-    background-color: rgba(255, 255, 255, 0.85);
-    border-color: rgba(175, 189, 33, 1.0);
-}
-.btn-primary {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(175, 189, 33, 1);
-    border-color: rgba(175, 189, 33, 1);
-}
-    .btn-primary:hover {
-        background-color: rgba(180, 195, 25, 1);
+    &:hover {
+        box-shadow: none;
+    }
+
+    &.btn-default {
+        color: rgba(175, 189, 33, 1.0);
+        background-color: rgba(255, 255, 255, 0.85);
+        border-color: rgba(175, 189, 33, 1.0);
+    }
+
+    &.btn-primary {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(175, 189, 33, 1);
         border-color: rgba(175, 189, 33, 1);
+
+        &:not(.disabled):not([disabled]):hover {
+            background-color: rgba(180, 195, 25, 1);
+            border-color: rgba(175, 189, 33, 1);
+        }
     }
-.btn-secondary {
-    color: rgba(255, 255, 255, 1.0);
-    background-color: rgba(54, 54, 54, 1);
-    border-color: rgba(20, 20, 20, 1);
-}
-    .btn-secondary:hover {
+
+    &.btn-secondary {
         color: rgba(255, 255, 255, 1.0);
-        background-color: rgba(20, 20, 20, 1);
-        border-color: rgba(0, 0, 0, 1);
+        background-color: rgba(54, 54, 54, 1);
+        border-color: rgba(20, 20, 20, 1);
+
+        &:not(.disabled):not([disabled]):hover {
+            color: rgba(255, 255, 255, 1.0);
+            background-color: rgba(20, 20, 20, 1);
+            border-color: rgba(0, 0, 0, 1);
+        }
     }
+
+    &.disabled,
+    &[disabled] {
+        opacity: .3;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}

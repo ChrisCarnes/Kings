@@ -1,0 +1,34 @@
+/*
+ *  PAGE CONTAINERS
+ */
+
+#wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &.nav-mobile-active #page {
+        transform: translate(70%, 0);
+        -webkit-transform: translate(70%, 0);
+    }
+
+    #page {
+        background: #fff;
+        height: 100%;
+        position: relative;
+        transition: transform 300ms ease;
+        -webkit-transition: transform 300ms ease;
+        width: 100%;
+
+        @media (max-width: 992px) {
+            transform: translate(0, 0);
+            -webkit-transform: translate(0, 0);
+        }
+
+        > .container:last-child {
+            padding-bottom: 80px;
+        }
+    }
+}
+
+

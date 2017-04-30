@@ -1,0 +1,20 @@
+task :default do
+    pages = Dir.glob("**/*.php").reject do |page|
+        page =~ /^(_partials|functions|build)/
+    end
+
+    `rm -rf build`
+    `mkdir -p build/{images,public}`
+    `cp -a images/ build/images`
+    `cp -a public/ build/public`
+
+    pages.each do |path|
+        path = path.gsub(/\/?index\.php$/, '/').gsub(/\/\//, '/')
+        store = "build/#{path}".gsub(/\/\//, '/')
+        fetch = "https://#{File.basename(Dir.getwd)}.dev/#{path}".gsub(/\/\/$/, '/')
+
+        `mkdir -p #{store} ; touch #{store}index.html ; curl #{fetch} >> #{store}index.html`
+    end
+
+    `open build`
+end

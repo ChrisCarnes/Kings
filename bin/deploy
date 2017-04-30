@@ -1,0 +1,130 @@
+#!/usr/bin/env ruby
+start = Time.now
+require "fileutils"
+require "pathname"
+require "digest"
+
+$includes = {
+    header: File.open("_partials/header.php", "rb").read,
+    head: File.open("_partials/head.php", "rb").read,
+    footer: File.open("_partials/footer.php", "rb").read
+}
+
+# Coloring and styling of strings
+class String
+    def method_missing(name, *args)
+        colors = :white, :black, :red, :green, :yellow, :blue, :magenta, :cyan
+        styles, menu = "", [:bold, :fade, :italic]
+        menu.reject {|s| !args.include?(s)}.each{|s| styles += "#{menu.index(s)+1};"}
+        offset = args.include?(:inverse) ? 100 : 30;
+
+        "\e[#{styles}#{colors.index(name)-1 + offset}m#{self}\e[0m"
+    end
+
+    def set? () ARGV.grep(/^(-|--)?#{self}(=.*)?$/).length > 0 end
+    def get () 
+        match = ARGV.grep(/^#{self}=(.*?)$/)
+        match.length > 0 ? match[0].gsub(/^(.*?)=/, '') : ARGV[ARGV.index{|e| e =~ /^-?-?#{self}/} + 1]
+    end
+end
+
+def setBasePath (input)
+    basepath = "path".get
+    basepath = "/#{basepath}" if basepath =~ /^[a-z_]/
+    basepath = basepath.gsub(/^\//, '') if basepath =~ /^\/http/
+    basepath = basepath.gsub(/\/$/, '') if basepath =~ /\/$/
+
+    replacements = [
+        [/(href|src|poster)=("|')(\/[a-z0-9].*?)("|')/, "\\1=\\2#{basepath}\\3\\4"],
+        [/(url ?\()("|')?(.*?)("|')?(\))/, "\\1\\2#{basepath}\\3\\4\\5"]
+    ]
+
+    replacements.each { |r| input = input.gsub(r[0], r[1]) }
+    
+    input
+end
+
+def cleanup (input)
+    [
+        [/ -- /, '&mdash;'],
+        [/…/, '...'],
+        [/™/, '&trade;'],
+        [/®/, '&reg;'],
+        [/©/, '&copy;'],
+        [/ /, ' '],
+        [/“/, '&ldquo;'],
+        [/”/, '&rdqu']
+    ].each { |i| input = input.gsub(i[0], i[1]) }
+    
+    $includes.each do |key, val|
+        input = input.gsub(/<\?php partial.*?#{key}(\.php)?.*?>/, val)
+    end
+
+    # This is a sad and crappy solution to replacing double 
+    # quotes in content with their HTML entity counterparts. 
+    
+    😭 = input.scan(/<script[\s\S]*?<\/script>/) + input.scan(/<\?php .*? \?>/) + input.scan(/[a-zA-Z\-:_]+=".*?"/)    
+    
+    😭.each_with_index do |line, index|
+        input = input.gsub(line, "💩#{index}💩")
+    end
+
+    input = input.gsub(/(?![^<]*>)"(.*?)(?<!=)"(?!>)/, '&rdquo;\\1&ldquo;')
+
+    😭.each_with_index do |line, index|
+        input = input.gsub("💩#{index}💩", line)
+    end
+
+    input
+end
+
+# Clear out build directory
+FileUtils.rm_rf("#{Dir.pwd}/build/")
+
+# DirectoryGenerator Pages
+pages = []
+Dir.glob('**/index.php').each do |path|
+    pages.push(path.gsub(/\/$/, ''))
+end
+
+FileUtils.mkdir_p("#{Dir.pwd}/build/")
+
+# Copy the public directory
+print "→ Moving public directory: ".green
+`cp -a public #{Dir.pwd}/build`
+print "Done\n"
+
+print "→ Moving functions file: ".green
+`cp functions.php #{Dir.pwd}/build`
+print "Done\n"
+
+
+# Create sitemap
+print "→ Creating sitemap: ".green
+system "sitemap --to #{Dir.pwd}/build"
+print "Done\n"
+
+if "path".set?
+    print "→ Setting basepath: ".green + "Done\n"
+end
+
+progress = "→ Creating and parsing files:".green
+pages.each_with_index do |path, index|
+    dirname = Pathname.new(path).dirname
+    FileUtils::mkdir_p "#{Dir.pwd}/build/#{dirname}"
+    File.open("#{Dir.pwd}/build/#{dirname}/index.php", 'w') { |file|
+        contents = File.read("#{Dir.pwd}/#{dirname}/index.php")
+        contents = cleanup contents
+
+        if "path".set?
+            file.write(setBasePath(contents))
+        else
+            file.write(contents)
+        end
+    }
+
+    print "\r"
+    print progress + " #{((index + 1).to_f / pages.length.to_f * 100.0).round(0)}% "
+end
+
+puts "\n→ Completed in ".green + "#{(Time.now - start).round(3)}".yellow(:bold) + " seconds".green
