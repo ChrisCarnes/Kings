@@ -5,15 +5,14 @@
     <title>King's Green Cleaning | Home Cleaning Services</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/our-services/" />
 
+    <?php partial("head"); ?>
+
     <?php partial("meta", array(
         "page" => "Services",
         "uri" => "/our-services/",
         "description" => "Provides eco-friendly home and office cleaning services on a weekly, bi-weekly or monthly schedule! We have deep cleaning services, move in/out, construction, and vacation rental cleanings as well.",
         "image" => "/images/kings-green-cleaning-icon.gif"
     )); ?>
-
-    <?php partial("head"); ?>
-
 </head>
 
 <body id="services">

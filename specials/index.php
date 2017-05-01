@@ -5,15 +5,14 @@
     <title>King's Green Cleaning | Home Cleaning Specials</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/specials/" />
 
+    <?php partial("head"); ?>
+
     <?php partial("meta", array(
         "page" => "Specials",
         "uri" => "/specials/",
         "description" => "Keep an eye out for our special deals and incentives. We love to get referrals and reviews. We also will have specials for holidays and special occasions.",
         "image" => "/images/kings-green-cleaning-icon.gif"
     )); ?>
-
-    <?php partial("head"); ?>
-
 </head>
 
 <body id="specials">

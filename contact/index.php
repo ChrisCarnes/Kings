@@ -5,15 +5,14 @@
     <title>King's Green Cleaning | Contact Us</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/contact/" />
 
+    <?php partial("head"); ?>
+
     <?php partial("meta", array(
         "page" => "Contact",
         "uri" => "/contact/",
         "description" => "Contact King's Green Cleaning for all your home cleaning needs.",
         "image" => "/images/kings-green-cleaning-icon.gif"
     )); ?>
-
-    <?php partial("head"); ?>
-
 </head>
 
 <body id="contact">

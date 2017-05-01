@@ -5,15 +5,14 @@
     <title>King's Green Cleaning | FAQ - Frequently Asked Questions</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/faq/" />
 
+    <?php partial("head"); ?>
+
     <?php partial("meta", array(
         "page" => "FAQ",
         "uri" => "/faq/",
         "description" => "Have questions about getting your home cleaned professionally? We compiled a list of the most asked questions to help give you the information needed to help with your decision.",
         "image" => "/images/kings-green-cleaning-icon.gif"
     )); ?>
-
-    <?php partial("head"); ?>
-
 </head>
 
 <body id="faq">

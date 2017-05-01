@@ -4,6 +4,8 @@
 <head>
     <title>King's Green Cleaning | Residential and Commercial Cleaning Services for the OKC Metro</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/" />
+
+    <?php partial("head"); ?>
     
     <!-- Google Search Console verification tag -->
     <meta name="google-site-verification" content="lRWKPde5q21-f3p52OuchcwczN0SxXuRdWqYb35DyRU" />
@@ -14,9 +16,6 @@
         "description" => "We offer commercial and residential green cleaning services. We will tailor a cleaning service for any type of home, need, or budget. Call us today to get a free estimate.",
         "image" => "/images/kings-green-cleaning-icon.gif"
     )); ?>
-
-    <?php partial("head"); ?>
-
 </head>
 
 <body id="home">

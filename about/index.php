@@ -5,15 +5,14 @@
     <title>King's Green Cleaning | The Royal Family</title>
     <link rel="canonical" href="http://kingsgreencleaning.com/about/" />
 
+    <?php partial("head"); ?>
+
     <?php partial("meta", array(
         "page" => "About",
         "uri" => "/about/",
         "description" => "A family owned and operated company with a passion for green cleaning. We use environmentally safe cleaning products to help keep your family, pets, and community clean and healthy.",
         "image" => "/images/kings-green-cleaning-icon.gif"
     )); ?>
-
-    <?php partial("head"); ?>
-
 </head>
 
 <body id="about">
